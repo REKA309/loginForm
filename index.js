@@ -166,7 +166,7 @@ app.post('/requestPasswordReset',async (req, res) => {
       return res.status(500).json({ error: 'Failed to send the random string.' });
     }
     console.log('Email sent: ' + info.response);
-    res.json({ message: 'Random string sent successfully to the email address.' });
+    res.status(200).json({ message: 'Random string sent successfully to the email address.' });
   });
   });
 // check token and email
@@ -186,7 +186,7 @@ app.post('/reset-password', async (req, res) => {
     user.resetToken = null; // Remove the reset token from the user document
     await user.save();
 
-    res.json({ message: 'Password updated successfully.' });
+    res.status(200).json({ message: 'Password updated successfully.' });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to update password.' });
