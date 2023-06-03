@@ -118,14 +118,14 @@ app.post("/checkUser",async(req,response,next)=>{
               });
         }
         else{
-            return response.status(400).json({
+            return response.status(401).json({
                 success: false,
                 message: "EmailId or Password is In-correct!!!",
               });
         }
       }
       else{
-        return response.status(400).json({
+        return response.status(404).json({
             success: false,
             message: "User account doesnt exists, create new account!!!",
           });
